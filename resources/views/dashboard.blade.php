@@ -1,17 +1,19 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
+    <div class="flex items-center flex-col mt-10">
+        <div></div>
+        @foreach ($tickets as $ticket)
+        <div class="border-[3px] rounded-lg border-sky-300 w-[82%] mb-5 p-1 bg-white">
+            <div class="grid grid-cols-1 lg:grid-cols-[14rem_10rem_8rem_minmax(0,1fr)_15rem_10rem_minmax(0,1fr)] font-medium">
+                <p class="px-1 py-3">{{ $ticket->name }}</p>
+                <p class="px-1 py-3">{{ $ticket->date }}</p>
+                <p class="px-1 py-3">{{ $ticket->tel }}</p>
+                <p class="px-1 py-3">{{ $ticket->email }}</p>
+                <p class="px-1 py-3">{{ $ticket->service }}</p>
+                <p class="px-1 py-3">{{ $ticket->payment }}</p>
+                <p class="px-1 py-3 text-right">{{ $ticket->status }}</p>
             </div>
         </div>
+        @endforeach
     </div>
+
 </x-app-layout>
