@@ -14,6 +14,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::view('/newTicket', 'newTicket')->name('newTicket');
+
     Route::get('/', [TicketController::class, 'report'])->name('dashboard');
 });
 
